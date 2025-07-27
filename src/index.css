@@ -2,41 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* GUI INU DeFi Mentor Design System - Meme-inspired DeFi theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* GUI INU Brand Colors */
+    --gui-orange: 25 100% 58%;
+    --gui-orange-light: 25 100% 68%;
+    --gui-orange-dark: 25 100% 48%;
+    
+    /* DeFi Theme Colors */
+    --defi-green: 142 76% 36%;
+    --defi-green-light: 142 76% 46%;
+    --defi-red: 0 84% 60%;
+    --defi-gold: 45 100% 51%;
+    
+    /* Meme-inspired Colors */
+    --doge-yellow: 51 100% 50%;
+    --inu-blue: 210 100% 56%;
+    --space-purple: 271 81% 56%;
+    
+    /* Base System */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    
+    --card: 240 10% 7%;
+    --card-foreground: 0 0% 95%;
+    
+    --popover: 240 10% 7%;
+    --popover-foreground: 0 0% 95%;
+    
+    --primary: var(--gui-orange);
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 240 5.9% 10%;
+    --muted-foreground: 240 5% 64.9%;
+    
+    --accent: var(--defi-green);
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: var(--defi-red);
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: var(--gui-orange);
+    
+    --radius: 1rem;
+    
+    /* Custom Gradients */
+    --gradient-gui: linear-gradient(135deg, hsl(var(--gui-orange)) 0%, hsl(var(--gui-orange-light)) 100%);
+    --gradient-defi: linear-gradient(135deg, hsl(var(--defi-green)) 0%, hsl(var(--defi-green-light)) 100%);
+    --gradient-degen: linear-gradient(135deg, hsl(var(--space-purple)) 0%, hsl(var(--inu-blue)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--gui-orange)) 0%, hsl(var(--space-purple)) 100%);
+    
+    /* Animations */
+    --animation-bounce: bounce 2s infinite;
+    --animation-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --animation-glow: glow 2s ease-in-out infinite alternate;
+    
+    /* Shadows */
+    --shadow-gui: 0 10px 30px -10px hsl(var(--gui-orange) / 0.3);
+    --shadow-defi: 0 10px 30px -10px hsl(var(--defi-green) / 0.3);
+    --shadow-glow: 0 0 20px hsl(var(--gui-orange) / 0.5);
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +134,84 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Meme-inspired animations */
+  @keyframes glow {
+    0% { box-shadow: 0 0 5px hsl(var(--gui-orange) / 0.5); }
+    100% { box-shadow: 0 0 20px hsl(var(--gui-orange) / 0.8), 0 0 30px hsl(var(--gui-orange) / 0.6); }
+  }
+  
+  @keyframes wiggle {
+    0%, 7% { transform: rotateZ(0); }
+    15% { transform: rotateZ(-15deg); }
+    20% { transform: rotateZ(10deg); }
+    25% { transform: rotateZ(-10deg); }
+    30% { transform: rotateZ(6deg); }
+    35% { transform: rotateZ(-4deg); }
+    40%, 100% { transform: rotateZ(0); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Utility classes for meme design */
+  .gradient-gui {
+    background: var(--gradient-gui);
+  }
+  
+  .gradient-defi {
+    background: var(--gradient-defi);
+  }
+  
+  .gradient-degen {
+    background: var(--gradient-degen);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .shadow-gui {
+    box-shadow: var(--shadow-gui);
+  }
+  
+  .shadow-defi {
+    box-shadow: var(--shadow-defi);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .animate-glow {
+    animation: var(--animation-glow);
+  }
+  
+  .animate-wiggle {
+    animation: wiggle 1s ease-in-out;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Meme text styles */
+  .text-degen {
+    background: var(--gradient-degen);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gui {
+    background: var(--gradient-gui);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

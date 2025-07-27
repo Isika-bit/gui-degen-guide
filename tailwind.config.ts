@@ -61,7 +61,18 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// GUI INU Meme Colors
+				'gui-orange': 'hsl(var(--gui-orange))',
+				'gui-orange-light': 'hsl(var(--gui-orange-light))',
+				'gui-orange-dark': 'hsl(var(--gui-orange-dark))',
+				'defi-green': 'hsl(var(--defi-green))',
+				'defi-green-light': 'hsl(var(--defi-green-light))',
+				'defi-red': 'hsl(var(--defi-red))',
+				'defi-gold': 'hsl(var(--defi-gold))',
+				'doge-yellow': 'hsl(var(--doge-yellow))',
+				'inu-blue': 'hsl(var(--inu-blue))',
+				'space-purple': 'hsl(var(--space-purple))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -70,25 +81,37 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				'glow': {
+					'0%': { boxShadow: '0 0 5px hsl(var(--gui-orange) / 0.5)' },
+					'100%': { boxShadow: '0 0 20px hsl(var(--gui-orange) / 0.8), 0 0 30px hsl(var(--gui-orange) / 0.6)' }
+				},
+				'wiggle': {
+					'0%, 7%': { transform: 'rotateZ(0)' },
+					'15%': { transform: 'rotateZ(-15deg)' },
+					'20%': { transform: 'rotateZ(10deg)' },
+					'25%': { transform: 'rotateZ(-10deg)' },
+					'30%': { transform: 'rotateZ(6deg)' },
+					'35%': { transform: 'rotateZ(-4deg)' },
+					'40%, 100%': { transform: 'rotateZ(0)' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'glow': 'glow 2s ease-in-out infinite alternate',
+				'wiggle': 'wiggle 1s ease-in-out',
+				'float': 'float 3s ease-in-out infinite'
 			}
 		}
 	},
